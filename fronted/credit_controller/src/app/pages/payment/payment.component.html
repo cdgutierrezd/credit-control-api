@@ -1,0 +1,10 @@
+<div class="d-flex flex-column">
+    <form [formGroup]="payForm" (ngSubmit)="toPay()">
+        <h2>Register Payment</h2>
+        <ng-select [items]="clients" bindLabel="name" bindValue="id" formControlName="clientId"
+            placeholder="Select Client" class="form-control">
+        </ng-select>
+        <input type="number" name="" id="" placeholder="Amount" class="form-control mt-2" formControlName="amount">
+        <button class="btn btn-success mt-2" type="submit">Save</button>
+    </form>
+</div>

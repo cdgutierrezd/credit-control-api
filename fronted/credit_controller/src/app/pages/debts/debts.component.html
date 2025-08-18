@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>CLIENT_ID</th>
+            <th>CLIENT NAME</th>
+            <th>DEBT</th>
+            <th>ADDRESS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (client of clients; track client.id) {
+            <tr>
+                <td>{{client.id}}</td>
+                <td>{{client.name}}</td>
+                <td>{{client.debt}}</td>
+                <td>{{client.address}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+<form [formGroup]="saveClientForm" (ngSubmit)="saveClient()">
+    <div class="d-flex flex-column">
+        <h2>Register Client</h2>
+        <input type="text" placeholder="Name" class="form-control mt-2" formControlName="name">
+        <input type="text" placeholder="Address" class="form-control mt-2" formControlName="address">
+        <button class="btn btn-success mt-2" type="submit">Save</button>
+    </div>
+</form>
