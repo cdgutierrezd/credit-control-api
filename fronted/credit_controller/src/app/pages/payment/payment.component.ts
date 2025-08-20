@@ -37,11 +37,9 @@ export class PaymentComponent {
         clientId:parseInt(this.payForm.get('clientId')?.value ?? '0'),
         amount: parseInt(this.payForm.get('amount')?.value ?? '0')
       }
-
       this.paymentService.save(request).subscribe(() => {
         this.router.navigate(['/debts']);
       })
     }
-    
   }
 }

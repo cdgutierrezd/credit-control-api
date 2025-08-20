@@ -28,6 +28,7 @@ public class PaymentService implements IPaymentService {
     private final PaymentMapper paymentMapper;
     private final ClientRepository clientRepository;
     private final SaleMapper saleMapper;
+    private final ClientService clientService;
 
     @Override
     public List<PaymentResponse> findAll(){
@@ -56,6 +57,10 @@ public class PaymentService implements IPaymentService {
         Payment payment = paymentMapper.toEntity(request);
         if (payment.getAmount().compareTo(BigDecimal.ZERO) <= 0){
             throw new InvalidParamentersException("Invalid Amount");
+        }
+        BigDecimal clientDebt = clientService.calculatedDebt(client.getId());
+        if(payment.getAmount().compareTo(clientDebt) > 0){
+            throw new InvalidParamentersException("Invalid amount");
         }
         payment.setClient(client);
         payment.setId(null);
